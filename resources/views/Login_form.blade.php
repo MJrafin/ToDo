@@ -13,23 +13,21 @@
      
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
       
-    
-    <style>
-    	
+    <link href="/css/main.css" rel="stylesheet">
+    <!-- <style>
     	.login-btn{
-    		
-    		background-color: #543c52;
-    		color: #f1e8e6;
-    		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    	}
+        
+    background-color: #543c52;
+    color: #f1e8e6;
+    box-shadow: rgba(0, 0, 0, 0.16)s0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
 
-    	.login-btn:hover{
+  .login-btn:hover{
 
-    		background-color: #f55951;
-    		color: white;
-    	}
-
-    </style>
+    background-color: #f55951;
+    color: white;
+  }
+    </style> -->
 
 </head>
 <body style="background-color: #543c52;">
@@ -55,18 +53,22 @@
 
                               <div class="password pt-3">
                               	 <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                 <input type="password" class="form-control" placeholder="Password" name="password">
                               </div>
+
+                              <div class="form-check pt-3">
+                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                 <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
+                                </div>
+
+                                <div class="text-center">
+                                <button type="button" class="btn mt-5 login-btn">Login</button>
+                                </div>
                           </form>
 
-                          <div class="form-check pt-3">
-   							 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    						<label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
-  						  </div>
+                          
                         
-                         	<div class="text-center">
-                          		<button type="button" class="btn mt-5 login-btn">Login</button>
-                          	</div>
+                         	
 
                     </div>
                 </div>

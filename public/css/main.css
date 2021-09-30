@@ -1,0 +1,12 @@
+.login-btn{
+        
+    background-color: #543c52;
+    color: #f1e8e6;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  .login-btn:hover{
+
+    background-color: #f55951;
+    color: white;
+  }
