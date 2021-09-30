@@ -53,20 +53,25 @@
                         </div>
                         <form class="" action="{{url('registration')}}" method="post">
                             @csrf
-                              <div class="Fname pt-3">
-                                <input type="text" class="form-control" placeholder="First name" name="f_name">
+                              <div>
+                              <span>@error('first_name'){{$message}}@enderror</span>
+                                <input type="text" class="form-control" name="first_name" value="{{old('first_name')}}" placeholder="First name">
                               </div>
                               <div class="Lname pt-3">
-                                <input type="text" class="form-control" placeholder="Last name" name="l_name">
+                                <span>@error('last_name'){{$message}}@enderror</span>
+                                <input type="text" class="form-control" name="last_name" value="{{old('last_name')}}" placeholder="Last name">
                               </div>
                               <div class="email pt-3">
-                                <input type="email" class="form-control" placeholder="E-mail" name="email">
+                                <span>@error('email'){{$message}}@enderror</span>
+                                <input type="email" class="form-control" name="email" value="{{old('email')}}" placeholder="E-mail">
                               </div>
                               <div class="phone pt-3">
-                                <input type="number" class="form-control" placeholder="Phone No." min="0" name="phone">
+                                <span>@error('phone'){{$message}}@enderror</span>
+                                <input type="number" class="form-control" name="phone" value="{{old('phone')}}" placeholder="Phone No." min="0">
                               </div>
                               <div class="password pt-3">
-                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                <span>@error('password'){{$message}}@enderror</span>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
                               </div>
 
                               <div class="form-check pt-3">
