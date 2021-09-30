@@ -36,7 +36,7 @@
     
     <div>
     
-        <div class="row pt-5 pb-3 justify-content center" style="align-items: center;">
+        <div class="row pt-5 pb-3 justify-content center mui-container-fluid" style="align-items: center;">
             
             <div class="col-lg-12" style="align-items: center;">
                 <div class="container" style="width: 600px; height: 400px; background: white; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; margin-top: 70px;">

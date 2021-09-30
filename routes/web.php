@@ -17,5 +17,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('Reg_form','Reg_form');
-Route::view('Login_form','Login_form');
+Route::view('Reg_form','Reg_form'); // Route to view the Registration form
+Route::view('Login_form','Login_form');  // Route to view the Login form
+Route::post('registration',[UserController::class,'registration']);

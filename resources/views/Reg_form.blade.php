@@ -37,26 +37,31 @@
                         <div class="title text-center mb-3 pt-4 text-white">
                             <h3 class="font-weight bolder" style="color:  #361d32;">Registration Form</h3>
                         </div>
-
-                        <form class="">
+                        <form class="" action="{{url('registration')}}" method="post">
+                            @csrf
                               <div class="Fname pt-3">
-                                <input type="text" class="form-control" placeholder="First name">
+                                <span>@error('first_name'){{$message}}@enderror</span>
+                                <input type="text" class="form-control" name="first_name" value="{{old('first_name')}}" placeholder="First name">
                               </div>
                               <div class="Lname pt-3">
-                                <input type="text" class="form-control" placeholder="Last name">
+                                <span>@error('last_name'){{$message}}@enderror</span>
+                                <input type="text" class="form-control" name="last_name" value="{{old('last_name')}}" placeholder="Last name">
                               </div>
                               <div class="email pt-3">
-                                <input type="email" class="form-control" placeholder="E-mail">
+                                <span>@error('email'){{$message}}@enderror</span>
+                                <input type="email" class="form-control" name="email" value="{{old('email')}}" placeholder="E-mail">
                               </div>
                               <div class="phone pt-3">
-                                <input type="number" class="form-control" placeholder="Phone No." min="0">
+                                <span>@error('phone'){{$message}}@enderror</span>
+                                <input type="number" class="form-control" name="phone" value="{{old('phone')}}" placeholder="Phone No." min="0">
                               </div>
                               <div class="password pt-3">
-                                <input type="password" class="form-control" placeholder="Password">
+                                <span>@error('password'){{$message}}@enderror</span>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
                               </div>
+                              <button type="submit" class="btn pt-3" style="color: #f55951;">Sign Up</button>
                           </form>
-                        
-                          <button type="button" class="btn pt-3" style="color: #f55951;">Sign Up</button>
+                          
 
                     </div>
                 </div>
