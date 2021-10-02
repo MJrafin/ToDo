@@ -44,16 +44,27 @@
                             <h3 class="font-weight bolder" style="color:  #361d32;">Login</h3>
                         </div>
 
-                        <form class="">
-                            
+                        @if(session('NoUser'))
+                            <div class="title text-center mb-3 pt-4 text-white">
+                                <h5 class="font-weight bolder" style="color:  #FF0000;">{{session('NoUser')}}</h5>
+                            </div>
+                        @endif
+                        
+                        @if(session('PasswordMissmatch'))
+                            <div class="title text-center mb-3 pt-4 text-white">
+                                <h5 class="font-weight bolder" style="color:  #FF0000;">{{session('PasswordMissmatch')}}</h5>
+                            </div>
+                        @endif
+                        <form class="" action="{{url('login')}}" method="post">
+                            @csrf
                               <div class="email pt-3">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" placeholder="E-mail" name="email">
+                                <input type="email" class="form-control" placeholder="E-mail" name="email" required>
                               </div>
 
                               <div class="password pt-3">
                               	 <label for="exampleInputEmail1">Password</label>
-                                 <input type="password" class="form-control" placeholder="Password" name="password">
+                                 <input type="password" class="form-control" placeholder="Password" name="password" required>
                               </div>
 
                               <div class="form-check pt-3">
@@ -62,7 +73,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                <button type="button" class="btn mt-5 login-btn">Login</button>
+                                <button type="submit" class="btn mt-5 login-btn">Login</button>
                                 </div>
                           </form>
 

@@ -80,7 +80,7 @@
                                 </div>
 
                               <div class="text-center">
-                              <button type="button" class="btn mt-5 login-btn">Register</button>
+                              <button type="submit" class="btn mt-5 login-btn">Register</button>
                             </div>
                           </form>
                         

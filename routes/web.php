@@ -17,6 +17,16 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('Reg_form','Reg_form'); // Route to view the Registration form
+Route::view('Reg_form','Reg_form');  // Route to view the Registration form
+Route::post('registration',[UserController::class,'registration']);  //gets data from the registration form and saves the data in the table
+
 Route::view('Login_form','Login_form');  // Route to view the Login form
-Route::post('registration',[UserController::class,'registration']);
+Route::post('login',[UserController::class,'login']);  //gets data from the registration form and saves the data in the table
+
+Route::get('Logout', function(){
+    if (session()->has('email')) {
+
+        session()->pull('email');
+    }
+    return redirect('/');
+});
