@@ -41,7 +41,7 @@
         <div class="row pt-5 pb-3 justify-content center" style="align-items: center;">
             
             <div class="col-lg-6" style="align-items: center;">
-                <img src="/img/undraw_online_ad_re_ol62.svg" style="width: 900px;" alt="">
+                <img src="{{url('img/undraw_online_ad_re_ol62.svg')}}" style="width: 900px;" alt="">
             </div>
 
             <div class="col-lg-6" style="align-items: center;">

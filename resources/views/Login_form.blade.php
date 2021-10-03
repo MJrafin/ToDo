@@ -13,7 +13,7 @@
      
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
       
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="{{url('css/main.css')}}" rel="stylesheet">
     <!-- <style>
     	.login-btn{
         

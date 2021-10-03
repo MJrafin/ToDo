@@ -30,3 +30,5 @@ Route::get('Logout', function(){
     }
     return redirect('/');
 });
+
+Route::view('Home','home');
