@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Demo</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script
@@ -16,6 +16,9 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     
+    	
+      <!-- <link rel="stylesheet" href="{{url('/css/main.css')}}"> -->
+
     <style>
     	
     	.fa-thumbs-up{
@@ -63,13 +66,37 @@
     	.post-text{
 
     		resize: none;
+    		height: 150px;
     	}
+
+
+    	.modal-content{
+                margin-top: 100px;
+            }
+
+
+        .large-btn{
+        	width: 100%;
+        	height: 70px;
+        	text-align: left;
+        	border: 1px solid #EFEFEF;
+        }
+
+        .large-btn:hover{
+
+        	background-color: #DCDCDC;
+        	border: 1px solid #543c52;
+        }
+
+        /*.text-container{
+        	padding: 30px;
+        }*/
 
     </style>
 
 
 </head>
-<body style="background-color: white;">
+<body style="background-color: white; width: 100%;">
     
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg nav-css navbar-dark">
@@ -107,8 +134,43 @@
     
         
     <!-- Post Text Field -->
-    <div class=" container justify-content-center" style="align-items: center; padding-bottom: 50px;">
-        <form>
+    <div class=" container justify-content-center mb-4 text-container" style="align-items: center; padding-bottom: 50px;">
+       
+    	<h5 class="pt-5" style="padding-left: 7px;">Write post</h5>
+       <button type="button" class="btn btn-light large-btn" data-toggle="modal" data-target="#PostModal" data-whatever="@mdo">What's on your mind?</button>
+
+       <div class="post-btn" style="float: left;">
+                    <button type="button" class="btn mt-2 btn-primary btn-sm" data-toggle="modal" data-target="#PostModal">Post</button>
+                </div>
+
+   <div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        		<h5 class="modal-title" id="exampleModalLabel"> Write post</h5>
+        		<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         		 <span aria-hidden="true">&times;</span>
+        		</button> -->
+      	</div>
+      		<div class="modal-body">
+        		<form>
+          
+          			<div class="form-group">
+            		<!-- <label for="message-text" class="col-form-label">Write Post</label> -->
+            		<textarea class="form-control post-text" id="message-text" rows="2" cols="2" placeholder="What's on your mind?"></textarea>
+          			</div>
+        		</form>
+      		</div>
+      			<div class="modal-footer">
+       			 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        		 <button type="button" class="btn btn-primary">Post</button>
+      			</div>
+    		</div>
+  </div>
+</div>
+
+        <!-- <form>
+            
             <div class="form-group">
             <label for="PostTextArea"></label>
             <textarea class="form-control post-text" style="align-items: center;" id="PostTextArea" rows="2" cols="2"  placeholder="What's on your mind?"></textarea>
@@ -117,7 +179,9 @@
                 <div class="post-btn" style="float: right;">
                     <button type="button" class="btn mt-2 btn-primary btn-sm">Post</button>
                 </div>
-    	</form>
+    	</form> -->
+   
+
    </div>
 
 
@@ -162,6 +226,19 @@
 
     
     
+
+
+    <script>
+  		$('#PostModal').on('show.bs.modal', function (event) {
+  		var button = $(event.relatedTarget) // Button that triggered the modal
+  		var recipient = button.data('whatever') // Extract info from data-* attributes
+  		// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  		// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  		var modal = $(this)
+		//   modal.find('.modal-title').text('New message to ' + recipient)
+		//   modal.find('.modal-body input').val(recipient)
+		})
+  </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
