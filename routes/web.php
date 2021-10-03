@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,11 @@ Route::view('Login_form','Login_form');  // Route to view the Login form
 Route::post('login',[UserController::class,'login']);  //gets data from the registration form and saves the data in the table
 
 Route::get('Logout', function(){
-    if (session()->has('email')) {
+    if (session()->has('user')) {  //check if there is any value in the user session or not
 
-        session()->pull('email');
+        session()->pull('user');  //pulls the value from the session
     }
-    return redirect('/');
+    return redirect('Home');  // redirects to home
 });
 
 Route::view('Home','home');
