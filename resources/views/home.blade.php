@@ -17,21 +17,68 @@
       rel="stylesheet">
     
     <style>
+    	
+    	.fa-thumbs-up{
+    		
+    		/*text-shadow: 0 0 1px black;
+  			color: white;*/
+  			color: #808080;
 
+    	}
+
+    	.fa-thumbs-up:hover{
+    		
+    		text-shadow: 0 0 1px black;
+  			color: #00008B;
+    	}
+
+    	.fa-share{
+    		text-shadow: 0 0 1px black;
+  			color: white;	
+    	}
+
+    	.fa-share:hover{
+    		
+    		text-shadow: 0 0 1px black;
+  			color: #543c52;
+    	}
+
+    	.post-options{
+    		display: flex;
+    		padding-bottom: 5px;
+    		margin-bottom: -5px;
+
+    	}
+
+    	.nav-css{
+    		
+    		background-color: #361d32;
+    		color: #361d32;
+    		
+    		/*Changed navbar color to gradient*/
+    		/*background: rgb(245,89,81);
+			background: linear-gradient(90deg, rgba(245,89,81,1) 22%, rgba(84,60,82,1) 46%);*/
+    	}
+
+    	.post-text{
+
+    		resize: none;
+    	}
 
     </style>
 
+
 </head>
-<body>
+<body style="background-color: white;">
     
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg nav-css navbar-dark">
             <a class="navbar-brand" style="margin-left: 50px;" href="#">ToDo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
-            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent"  style="margin-left: 1000px;">
+            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent"  style="margin-left: 1000px; color: #361d32;">
               <ul class="navbar-nav" style="margin-left: 60px;">
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
@@ -70,7 +117,7 @@
                 <div class="post-btn" style="float: right;">
                     <button type="button" class="btn mt-2 btn-primary btn-sm">Post</button>
                 </div>
-    </form>
+    	</form>
    </div>
 
 
@@ -81,17 +128,17 @@
         <h5 class="card-title">Mashrur Jamil Rafin</h5>
         <p class="card-text"><small class="text-muted">3 mins ago</small></p>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <div class="card-footer bg-white">
-          <!-- <div>
-          <span class="material-icons-outlined">thumb_up</span>
-          <p>Like</p>
-          </div> -->
-          <button type="button" class="btn mt-2 btn-primary btn-sm">Like</button>
-          <button type="button" class="btn mt-2 btn-primary btn-sm">Share</button>
-        </div>
-        
+        <div class="card-footer bg-white post-options">
+          <div class="like-btn">
+          <i onclick="myFunction(this)" class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> Like</span>
+          </div>
+          <div class="share-btn">
+          <i class="fas fa-share"></i><span> Share</span>
+          </div>
+          <!-- <button type="button" class="btn mt-2 btn-primary btn-sm">Like</button>
+          <button type="button" class="btn mt-2 btn-primary btn-sm">Share</button> -->
+        </div> 
       </div>
-      <!-- <img class="card-img-bottom" src=".../100px180/" alt="Card image cap"> -->
     </div>
   </div>
 
@@ -99,12 +146,15 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Mashrur Jamil Rafin</h5>
-        <p class="card-text"><small class="text-muted">3 mins ago</small></p>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <div class="card-footer bg-white">
-          <button type="button" class="btn mt-2 btn-primary btn-sm">Like</button>
-          <button type="button" class="btn mt-2 btn-primary btn-sm">Share</button>
-        </div>
+        <p class="card-text"><small class="text-muted">5 mins ago</small></p>
+        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <div class="card-footer bg-white post-options">
+          <div class="like-btn">
+          <i class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> Like</span>
+          </div>
+          <div class="share-btn">
+          <i class="fas fa-share"></i><span> Share</span>
+          </div>
       </div>
       <!-- <img class="card-img-bottom" src=".../100px180/" alt="Card image cap"> -->
     </div>
