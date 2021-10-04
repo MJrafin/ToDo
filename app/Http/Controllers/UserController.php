@@ -31,7 +31,10 @@ class UserController extends Controller
         $user->save(); //user is saved to database
         $req->session()->put('user', $user);  //starts a session against the user after successful registration 
 
-        $posts = post::get();
+        $posts = DB::table('posts')
+            ->join('users', 'users.email', '=', 'post.user_email')
+            ->select('*')
+            ->get();
         return view('Home',['posts'=>$posts]);  // redirects to the home page 
     }
     public function login(Request $req)

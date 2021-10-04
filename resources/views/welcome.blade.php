@@ -31,7 +31,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{$post}} {{$post}}</h5>
-        <p class="card-text"><small class="text-muted">3 mins ago</small></p>
+        <p class="card-text"><small class="text-muted"></small></p>
         <p class="card-text">{{$post->content}}</p>
         <div class="card-footer bg-white post-options">
           <div class="like-btn">
