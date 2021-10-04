@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script
@@ -99,14 +99,14 @@
 <body style="background-color: white; width: 100%;">
     
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg nav-css navbar-dark">
-            <a class="navbar-brand" style="margin-left: 50px;" href="#">ToDo</a>
+        <nav class="container-fluid navbar navbar-expand-lg nav-css navbar-dark">
+            <a class="navbar-brand" style="margin-left: 100px;" href="#">ToDo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
-            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent"  style="margin-left: 1000px; color: #361d32;">
-              <ul class="navbar-nav" style="margin-left: 60px;">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="color: #361d32;">
+              <ul class="nav navbar-nav">
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
