@@ -108,31 +108,33 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="color: #361d32;">
               <ul class="nav navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{url('Home')}}">Home<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                @if(!session()->has('user'))  <!-- if there is no user loged in, register and Login button will be shown in the header-->
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('Reg_form')}}">Register</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{url('Login_form')}}">Login</a>
+                  </li> 
+                @endif
+                @if(session()->has('user'))  
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="UserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Mashrur Jamil Rafin
+                    {{session('user')->first_name}} {{session('user')->last_name}}  <!-- if there is any user loged in, his name will be shown -->
                   </a>
                   <div class="dropdown-menu" aria-labelledby="UserDropdown">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="{{url('Logout')}}">Logout</a>
                   </div>
                 </li>
+                @endif
               </ul>
             </div>
           </nav>
-
-    
-        
+  
     <!-- Post Text Field -->
     <div class=" container justify-content-center mb-4 text-container" style="align-items: center; padding-bottom: 50px;">
        

@@ -22,9 +22,31 @@
         </style>
     </head>
     <body class="antialiased">
-        @if(session()->has('email'))
-            <h1>{{session('email')}} is loged in </h1> 
+        @if(session()->has('user'))
+            <h1>{{session('user')->first_name}} is loged in </h1> 
         @endif
+        @foreach($posts as $post)
+
+   <div class=" container justify-content-center" style="align-items: center;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{$post}} {{$post}}</h5>
+        <p class="card-text"><small class="text-muted"></small></p>
+        <p class="card-text">{{$post->content}}</p>
+        <div class="card-footer bg-white post-options">
+          <div class="like-btn">
+          <i onclick="myFunction(this)" class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> Like</span>
+          </div>
+          <div class="share-btn">
+          <i class="fas fa-share"></i><span> Share</span>
+          </div>
+          <!-- <button type="button" class="btn mt-2 btn-primary btn-sm">Like</button>
+          <button type="button" class="btn mt-2 btn-primary btn-sm">Share</button> -->
+        </div> 
+      </div>
+    </div>
+  </div>
+  @endforeach
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
