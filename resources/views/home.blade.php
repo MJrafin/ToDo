@@ -16,82 +16,15 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     
-    	
-      <!-- <link rel="stylesheet" href="{{url('/css/main.css')}}"> -->
+    <!-- NOT WORKING  -->
+    <!-- <link rel="stylesheet" href="{{url('css/home.css')}}"> -->
+    <!-- <link rel="stylesheet" href="/css/home.css"> -->
+
+    <!-- FROM RESOURCES ->views -->
+   <link rel="stylesheet" href="home.css">
 
     <style>
     	
-    	.fa-thumbs-up{
-    		
-    		/*text-shadow: 0 0 1px black;
-  			color: white;*/
-  			color: #808080;
-
-    	}
-
-    	.fa-thumbs-up:hover{
-    		
-    		text-shadow: 0 0 1px black;
-  			color: #00008B;
-    	}
-
-    	.fa-share{
-    		text-shadow: 0 0 1px black;
-  			color: white;	
-    	}
-
-    	.fa-share:hover{
-    		
-    		text-shadow: 0 0 1px black;
-  			color: #543c52;
-    	}
-
-    	.post-options{
-    		display: flex;
-    		padding-bottom: 5px;
-    		margin-bottom: -5px;
-
-    	}
-
-    	.nav-css{
-    		
-    		background-color: #361d32;
-    		color: #361d32;
-    		
-    		/*Changed navbar color to gradient*/
-    		/*background: rgb(245,89,81);
-			background: linear-gradient(90deg, rgba(245,89,81,1) 22%, rgba(84,60,82,1) 46%);*/
-    	}
-
-    	.post-text{
-
-    		resize: none;
-    		height: 150px;
-    	}
-
-
-    	.modal-content{
-                margin-top: 100px;
-            }
-
-
-        .large-btn{
-        	width: 100%;
-        	height: 70px;
-        	text-align: left;
-        	border: 1px solid #EFEFEF;
-        }
-
-        .large-btn:hover{
-
-        	background-color: #DCDCDC;
-        	border: 1px solid #543c52;
-        }
-
-        /*.text-container{
-        	padding: 30px;
-        }*/
-
     </style>
 
 

@@ -13,62 +13,13 @@
      
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
       
-    
-    <style>
-        
-        .body-color{
-            background: rgb(237,210,203);
-            background: linear-gradient(90deg, rgba(237,210,203,1) 28%, rgba(241,232,230,1) 62%);
-        }
+      <!-- FROM PUBLIC FOLDER-> CSS NOT WORKING, Tried these 2 ways -->
+      <!-- <link rel="stylesheet" type="text/css" href="{{url('css/WelcomeToDo.css')}}"> -->
+      <!-- <link rel="stylesheet" type="text/css" href="/css/WelcomeToDo.css">-->
 
-        .para{
-            font-size: larger;
-        }
+      <!-- FROM resources-> views -->
+      <link rel="stylesheet" type="text/css" href="WelcomeToDo.css">
 
-        .reg-hov{
-            color: #f55951;
-            font-weight: bolder;
-            font-size: x-large;
-            /* animation: blink 1s linear infinite; */
-        }
-
-        .reg-hov:hover{
-            color: #543c52;
-        }
-
-        /* .b{
-            animation: blink 1s linear infinite; 
-        } */
-
-        /* @keyframes blink{
-        0%{opacity: 0;}
-        50%{opacity: .5;}
-        100%{opacity: 1;}
-        } */
-
-
-        .log-hov{
-            color: #f55951;
-            font-weight: bolder;
-            font-size: x-large;
-        }
-
-        .reg-hov:hover{
-            color: #543c52;
-        }
-
-        .bttn{
-           background-color:  #f55951;
-           color: white;    
-        }
-
-        .bttn:hover{
-            background-color:  #f1e8e6;
-           color: #f55951;
-           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        }
-
-    </style>
 
 </head>
 <body class="body-color">
@@ -79,23 +30,20 @@
 
             <div class="col-lg-5">
                 <div class="pt-5" style="float: right; margin-top: 100px;"> 
-                   <img src="undraw_Browsing_online_re_umsa.svg" style="width: 90%;;" alt="">
+                   <img src="/img/undraw_Browsing_online_re_umsa.svg" style="width: 90%;;" alt="">
                </div>
              </div>
 
-            <div class="col-lg-7 pt-5" style="margin-top: 150px; float:left">
+            	<div class="col-lg-7 pt-5" style="margin-top: 150px; float:left">
 
                 <h1>Welcome to <span style="color: #f55951;">ToDo</span><span style="color: #361d32;">.com</span>!</h1>
                 <p class="para"> <span style="color: #f55951;">ToDo</span> is a free social networking microblogging service that allows registered members to broadcast short posts or blogs. Todo members can broadcast tweets and follow other users' tweets by using multiple platforms and devices. Tweets and replies to tweets can be sent by cell phone text message, desktop client or by posting at the <a href="#" style="color: #f55951";> Todo.com</a> website.
                 Join and enjoy the kingdom of posts! <br></p>
 
-                <!-- <h6 class="para">Haven't joined yet? <span class="blink"><a class="reg-hov" href="Reg_form.html">Register</a></span> NOW! its free.</h6> 
-                <h6 class="para">Already Joined? <a  href="#" class="log-hov">Login</a> from here.</h6>
-                <div class="pt-5"></div>
-                <div class="pt-5"></div> -->
 
-                <h6 class="para">Haven't joined yet? its free! <button type="button" class="btn bttn">Register Now</button></h6>
-                <h6 class="para">Already Joined? <button type="button" class="btn bttn">Login</button></h6>
+                <h6 class="para">Haven't joined yet? its free! <a class="btn bttn" href="Reg_form.blade.php">Register Now</a></h6>
+                
+                <h6 class="para">Already Joined? <a class="btn bttn" href="Login_form.blade.php">Login</a></h6>
                
 
            </div>

@@ -1,0 +1,51 @@
+.body-color{
+    background: rgb(237,210,203);
+    background: linear-gradient(90deg, rgba(237,210,203,1) 28%, rgba(241,232,230,1) 62%);
+}
+
+.para{
+    font-size: larger;
+}
+
+.reg-hov{
+    color: #f55951;
+    font-weight: bolder;
+    font-size: x-large;
+    /* animation: blink 1s linear infinite; */
+}
+
+.reg-hov:hover{
+    color: #543c52;
+}
+
+/* .b{
+    animation: blink 1s linear infinite; 
+} */
+
+/* @keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+} */
+
+
+.log-hov{
+    color: #f55951;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.reg-hov:hover{
+    color: #543c52;
+}
+
+.bttn{
+   background-color:  #f55951;
+   color: white;    
+}
+
+.bttn:hover{
+    background-color:  #f1e8e6;
+   color: #f55951;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
