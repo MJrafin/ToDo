@@ -15,7 +15,11 @@
       
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+	  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+ -->
     <!-- NOT WORKING  -->
     <!-- <link rel="stylesheet" href="{{url('css/home.css')}}"> -->
     <!-- <link rel="stylesheet" href="/css/home.css"> -->
@@ -25,6 +29,99 @@
 
     <style>
     	
+
+
+.fa-share{
+    text-shadow: 0 0 1px black;
+      color: white;	
+}
+
+.fa-share:hover{
+    
+    text-shadow: 0 0 1px black;
+      color: #543c52;
+}
+
+.post-options{
+    display: flex;
+    padding-bottom: 5px;
+    margin-bottom: -5px;
+
+}
+
+.nav-css{
+    
+    background-color: #361d32;
+    color: #361d32;
+    
+    /*Changed navbar color to gradient*/
+    /*background: rgb(245,89,81);
+    background: linear-gradient(90deg, rgba(245,89,81,1) 22%, rgba(84,60,82,1) 46%);*/
+}
+
+.post-text{
+
+    resize: none;
+    height: 150px;
+}
+
+
+.modal-content{
+        margin-top: 100px;
+    }
+
+
+.large-btn{
+    width: 100%;
+    height: 70px;
+    text-align: left;
+    border: 1px solid #EFEFEF;
+}
+
+.large-btn:hover{
+
+    background-color: #DCDCDC;
+    border: 1px solid #543c52;
+}
+
+/*.text-container{
+    padding: 30px;
+}*/
+
+    	
+    	.like-btn{
+     		
+     		display: flex;  
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            background-color: white;
+        }
+
+        .like-btn:hover{
+            color: black;
+        }
+
+        .fa-thumbs-up-liked{
+            color: darkblue;
+        }
+
+        .dislike-btn{
+     		
+     		display: flex;  
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            background-color: white;
+            color: grey;
+        }
+
+        .dislike-btn:hover{
+            color: black;
+        }
+        .fa-thumbs-down-disliked{
+        	color: red;
+        }
     </style>
 
 
@@ -129,22 +226,103 @@
         <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
         <p class="card-text">{{$post->content}}</p>
         <div class="card-footer bg-white post-options">
-          <div class="like-btn">
-          <i onclick="myFunction(this)" class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> {{$post->number_of_like}} Like</span>
-          </div>
+
+          <bbutton class="like-btn">
+      		<i  class="fas fa-thumbs-up pt-1" id="a"><span style="padding-left: 2px; padding-right: 10px"> Like</span></i>
+    	  </bbutton>
+    	   
+          <bbutton class="dislike-btn">
+          <i class="fas fa-thumbs-down pt-1" id="b"><span style="padding-left: 2px; padding-right: 10px"> Dislike</span></i>
+          </bbutton>
+
+
           <div class="share-btn">
           <i class="fas fa-share"></i><span> Share</span>
           </div>
+        </div>
           <!-- <button type="button" class="btn mt-2 btn-primary btn-sm">Like</button>
           <button type="button" class="btn mt-2 btn-primary btn-sm">Share</button> -->
-        </div> 
+        
       </div>
     </div>
   </div>
   @endforeach
 
+  <div class=" container justify-content-center pt-3" style="align-items: center;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Mashrur Jamil Rafin</h5>
+        <p class="card-text"><small class="text-muted">5 mins ago</small></p>
+        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <div class="card-footer bg-white post-options">
+          <bbutton class="like-btn">
+      		<i class="fas fa-thumbs-up pt-1" onclick="like()"><span style="padding-left: 2px; padding-right: 10px"> Like</span></i>
+    	  </bbutton>
+    	   
+          <bbutton class="dislike-btn">
+          <i class="fas fa-thumbs-down pt-1" onclick="dislike()"><span style="padding-left: 2px; padding-right: 10px"> Dislike</span></i>
+          </bbutton>
+
+          <div class="share-btn">
+          <i class="fas fa-share"></i><span> Share</span>
+          </div>
+         </div>
+      <!-- <img class="card-img-bottom" src=".../100px180/" alt="Card image cap"> -->
+    </div>
+  </div>
+
+    
+    <!-- FAILED Attempt scripts (using toggle) -->
+    <!-- LIKE BUTTON SCRIPT -->
+   <!--  <script>
+      $('bbutton').click(function () {
+        $('#tgl').toggleClass('fa-thumbs-up-liked');   
+      }); 
+	</script> -->
 
 
+	<!-- DISLIKE BUTTON SCRIPT -->
+    <!-- <script>
+      $('bbutton2').click(function () {
+        $('#dis-tgl').toggleClass('fa-thumbs-down-disliked');   
+      });
+	</script>
+ 	-->
+
+
+ 	<script>
+ 		var color1 = document.getElementsByClassName('fa-thumbs-up')[0];
+		var color2 = document.getElementsByClassName('fa-thumbs-down')[0];
+
+ 		
+
+ 		document.getElementById('a').onclick = function like() {
+  		if(color1.style.color == "blue")
+  		{
+    	color1.style.color = "grey";
+  		} 
+  		else{
+    	color1.style.color = "blue";
+  		}
+  		color2.style.color = "grey";
+		}
+
+		document.getElementById('b').onclick = function dislike() {
+  		if (color2.style.color == "red")
+  		{
+    	color2.style.color = "grey";
+  		} 
+  		else 
+  		{
+    	color2.style.color = "red";
+  		}
+  		color1.style.color = "grey";
+		}
+
+ 	</script>
+
+
+	<!-- POPUP WRITE POST JS -->
     <script>
   		$('#PostModal').on('show.bs.modal', function (event) {
   		var button = $(event.relatedTarget) // Button that triggered the modal
