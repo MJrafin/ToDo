@@ -32,4 +32,5 @@ Route::get('Logout', function(){
     return redirect('Home');  // redirects to home
 });
 
-Route::view('Home','home');
+Route::view('Home','home'); // route to view home
+Route::view('WelcomeToDo','WelcomeToDo');  // route to view Welcome page
