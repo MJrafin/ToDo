@@ -18,7 +18,7 @@
       <!-- <link rel="stylesheet" type="text/css" href="/css/WelcomeToDo.css">-->
 
       <!-- FROM resources-> views -->
-      <link rel="stylesheet" type="text/css" href="WelcomeToDo.css">
+      <link rel="stylesheet" type="text/css" href="{{url('css/WelcomeToDo.css')}}">
 
 
 </head>
@@ -30,7 +30,7 @@
 
             <div class="col-lg-5">
                 <div class="pt-5" style="float: right; margin-top: 100px;"> 
-                   <img src="/img/undraw_Browsing_online_re_umsa.svg" style="width: 90%;;" alt="">
+                   <img src="{{url('/img/undraw_Browsing_online_re_umsa.svg')}}" style="width: 90%;;" alt="">
                </div>
              </div>
 
@@ -41,9 +41,9 @@
                 Join and enjoy the kingdom of posts! <br></p>
 
 
-                <h6 class="para">Haven't joined yet? its free! <a class="btn bttn" href="Reg_form.blade.php">Register Now</a></h6>
+                <h6 class="para">Haven't joined yet? its free! <a class="btn bttn" href="{{url('Reg_form')}}">Register Now</a></h6>
                 
-                <h6 class="para">Already Joined? <a class="btn bttn" href="Login_form.blade.php">Login</a></h6>
+                <h6 class="para" >Already Joined? <a class="btn bttn" href="{{url('Login_form')}}">Login</a></h6>
                
 
            </div>

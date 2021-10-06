@@ -29,8 +29,10 @@ Route::get('Logout', function(){
 
         session()->pull('user');  //pulls the value from the session
     }
-    return redirect('Home');  // redirects to home
+    return redirect('WelcomeToDo');  // redirects to home
 });
 
 Route::view('Home','home'); // route to view home
 Route::view('WelcomeToDo','WelcomeToDo');  // route to view Welcome page
+
+Route::get('viewposts',[PostController::class,'ViewPost']); //route to show posts in the home page

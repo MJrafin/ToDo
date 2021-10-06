@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use App\Models\post;
-use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -32,9 +30,8 @@ class UserController extends Controller
         $user->save(); //user is saved to database
         $req->session()->put('user', $user);  //starts a session against the user after successful registration 
 
-        $posts = DB::table('posts')
-                        ->get();
-                return view('home',['posts'=>$posts]);  // redirects to the home page 
+        return redirect('viewposts');  //redirects to view teh posts in the home
+ 
     }
     public function login(Request $req)
     {
@@ -44,9 +41,7 @@ class UserController extends Controller
                 $user->password;
                 $req->session()->put('user', $user);    //starts a session against the user after successful login
 
-                $posts = post::get(); // geting the post table using post model
-               
-                return view('home',['posts'=>$posts]);  //redirect to home with the $post oject
+                return redirect('viewposts');  //redirects to view teh posts in the home
             }
             else{
                 return redirect('Login_form')->with('PasswordMissmatch','password does not match'); //throw error if the password does not matches
@@ -56,4 +51,5 @@ class UserController extends Controller
             return redirect('Login_form')->with('NoUser','no user found');  //throw error if the email does not matches with any user
         }
     }
+    
 }

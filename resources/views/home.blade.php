@@ -138,7 +138,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="color: #361d32;">
               <ul class="nav navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="{{url('Home')}}">Home<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{url('viewposts')}}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 @if(!session()->has('user'))  <!-- if there is no user loged in, register and Login button will be shown in the header-->
                   <li class="nav-item">
@@ -218,21 +218,21 @@
 
 
    <!-- Posts Timeline-->
-   @foreach($posts as $post)
+   @foreach($posts as $post)  <!-- takes the posts one by one and shows in the desired position   -->
    <div class=" container justify-content-center pt-2 pb-2" style="align-items: center;">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{$post->name}}</h5>
-        <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
+        <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>  <!-- diffForHuman() is a function of CARBON library whichs returns a time that a human can easily understand -->
         <p class="card-text">{{$post->content}}</p>
         <div class="card-footer bg-white post-options">
 
           <bbutton class="like-btn">
-      		<i  class="fas fa-thumbs-up pt-1" id="a"><span style="padding-left: 2px; padding-right: 10px"> Like</span></i>
+      		<i class="fas fa-thumbs-up pt-1" id="like"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_like}} Like</span></i>
     	  </bbutton>
     	   
           <bbutton class="dislike-btn">
-          <i class="fas fa-thumbs-down pt-1" id="b"><span style="padding-left: 2px; padding-right: 10px"> Dislike</span></i>
+          <i class="fas fa-thumbs-down pt-1" id="dislike"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_dislike}} Dislike</span></i>
           </bbutton>
 
 
@@ -248,7 +248,7 @@
   </div>
   @endforeach
 
-  <div class=" container justify-content-center pt-3" style="align-items: center;">
+   <!-- <div class=" container justify-content-center pt-3" style="align-items: center;">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Mashrur Jamil Rafin</h5>
@@ -267,10 +267,10 @@
           <i class="fas fa-share"></i><span> Share</span>
           </div>
          </div>
-      <!-- <img class="card-img-bottom" src=".../100px180/" alt="Card image cap"> -->
+        <img class="card-img-bottom" src=".../100px180/" alt="Card image cap"> 
     </div>
   </div>
-
+ </div>  -->
     
     <!-- FAILED Attempt scripts (using toggle) -->
     <!-- LIKE BUTTON SCRIPT -->
@@ -296,7 +296,7 @@
 
  		
 
- 		document.getElementById('a').onclick = function like() {
+ 		document.getElementById('like').onclick = function like() {
   		if(color1.style.color == "blue")
   		{
     	color1.style.color = "grey";
@@ -307,7 +307,7 @@
   		color2.style.color = "grey";
 		}
 
-		document.getElementById('b').onclick = function dislike() {
+		document.getElementById('dislike').onclick = function dislike() {
   		if (color2.style.color == "red")
   		{
     	color2.style.color = "grey";
