@@ -26,10 +26,11 @@
             <h1>{{session('user')->first_name}} is loged in </h1> 
         @endif
         @foreach($posts as $post)
+        {{$post->created_at->diffForHumans();}}
    <div class=" container justify-content-center" style="align-items: center;">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"> {{$post->name}}</h5>
+        <h5 class="card-title"> {{$post->name}} </h5>
         <p class="card-text"><small class="text-muted"> {{$post->content}}</small></p>
         <p class="card-text"></p>
         <div class="card-footer bg-white post-options">

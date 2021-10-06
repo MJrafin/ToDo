@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\post;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -32,10 +33,8 @@ class UserController extends Controller
         $req->session()->put('user', $user);  //starts a session against the user after successful registration 
 
         $posts = DB::table('posts')
-            ->join('users', 'users.email', '=', 'post.email')
-            ->select('*')
-            ->get();
-        return view('Home',['posts'=>$posts]);  // redirects to the home page 
+                        ->get();
+                return view('home',['posts'=>$posts]);  // redirects to the home page 
     }
     public function login(Request $req)
     {
@@ -45,9 +44,9 @@ class UserController extends Controller
                 $user->password;
                 $req->session()->put('user', $user);    //starts a session against the user after successful login
 
-                $posts = DB::table('posts')
-                        ->get();
-                return view('welcome',['posts'=>$posts]);  
+                $posts = post::get(); // geting the post table using post model
+               
+                return view('home',['posts'=>$posts]);  //redirect to home with the $post oject
             }
             else{
                 return redirect('Login_form')->with('PasswordMissmatch','password does not match'); //throw error if the password does not matches

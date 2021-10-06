@@ -121,15 +121,16 @@
 
 
    <!-- Posts Timeline-->
-   <div class=" container justify-content-center" style="align-items: center;">
+   @foreach($posts as $post)
+   <div class=" container justify-content-center pt-2 pb-2" style="align-items: center;">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Mashrur Jamil Rafin</h5>
-        <p class="card-text"><small class="text-muted">3 mins ago</small></p>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">{{$post->name}}</h5>
+        <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
+        <p class="card-text">{{$post->content}}</p>
         <div class="card-footer bg-white post-options">
           <div class="like-btn">
-          <i onclick="myFunction(this)" class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> Like</span>
+          <i onclick="myFunction(this)" class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> {{$post->number_of_like}} Like</span>
           </div>
           <div class="share-btn">
           <i class="fas fa-share"></i><span> Share</span>
@@ -140,27 +141,8 @@
       </div>
     </div>
   </div>
+  @endforeach
 
-  <div class=" container justify-content-center pt-3" style="align-items: center;">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Mashrur Jamil Rafin</h5>
-        <p class="card-text"><small class="text-muted">5 mins ago</small></p>
-        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <div class="card-footer bg-white post-options">
-          <div class="like-btn">
-          <i class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> Like</span>
-          </div>
-          <div class="share-btn">
-          <i class="fas fa-share"></i><span> Share</span>
-          </div>
-      </div>
-      <!-- <img class="card-img-bottom" src=".../100px180/" alt="Card image cap"> -->
-    </div>
-  </div>
-
-    
-    
 
 
     <script>
