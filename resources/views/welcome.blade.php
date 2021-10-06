@@ -26,13 +26,12 @@
             <h1>{{session('user')->first_name}} is loged in </h1> 
         @endif
         @foreach($posts as $post)
-
    <div class=" container justify-content-center" style="align-items: center;">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{$post}} {{$post}}</h5>
-        <p class="card-text"><small class="text-muted"></small></p>
-        <p class="card-text">{{$post->content}}</p>
+        <h5 class="card-title"> {{$post->name}}</h5>
+        <p class="card-text"><small class="text-muted"> {{$post->content}}</small></p>
+        <p class="card-text"></p>
         <div class="card-footer bg-white post-options">
           <div class="like-btn">
           <i onclick="myFunction(this)" class="fas fa-thumbs-up"></i><span style="padding-left: 2px; padding-right: 10px"> Like</span>
