@@ -228,11 +228,11 @@
         <div class="card-footer bg-white post-options">
 
           <bbutton class="like-btn">
-      		<i class="fas fa-thumbs-up pt-1" id="like"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_like}} Like</span></i>
+      		<i class="fas fa-thumbs-up pt-1" id="like{{$post->id}}"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_like}} Like</span></i>
     	  </bbutton>
     	   
           <bbutton class="dislike-btn">
-          <i class="fas fa-thumbs-down pt-1" id="dislike"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_dislike}} Dislike</span></i>
+          <i class="fas fa-thumbs-down pt-1" id="dislike{{$post->id}}"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_dislike}} Dislike</span></i>
           </bbutton>
 
 
@@ -246,6 +246,36 @@
       </div>
     </div>
   </div>
+<script>
+    
+    
+    
+    document.getElementById('like{{$post->id}}').onclick = function like() {
+      var color1 = document.getElementById('like{{$post->id}}');
+      if(color1.style.color == "blue")
+      {
+      color1.style.color = "grey";
+      } 
+      else{
+      color1.style.color = "blue";
+      }
+      color2.style.color = "grey";
+    }
+    document.getElementById('dislike{{$post->id}}').onclick = function dislike() {
+      var color2 = document.getElementById('dislike{{$post->id}}');
+      if (color2.style.color == "red")
+      {
+      color2.style.color = "grey";
+      } 
+      else 
+      {
+      color2.style.color = "red";
+      }
+      color1.style.color = "grey";
+    }
+  </script>
+
+
   @endforeach
 
    <!-- <div class=" container justify-content-center pt-3" style="align-items: center;">
@@ -288,38 +318,8 @@
       });
 	</script>
  	-->
+ 
 
-
- 	<script>
- 		var color1 = document.getElementsByClassName('fa-thumbs-up')[0];
-		var color2 = document.getElementsByClassName('fa-thumbs-down')[0];
-
- 		
-
- 		document.getElementById('like').onclick = function like() {
-  		if(color1.style.color == "blue")
-  		{
-    	color1.style.color = "grey";
-  		} 
-  		else{
-    	color1.style.color = "blue";
-  		}
-  		color2.style.color = "grey";
-		}
-
-		document.getElementById('dislike').onclick = function dislike() {
-  		if (color2.style.color == "red")
-  		{
-    	color2.style.color = "grey";
-  		} 
-  		else 
-  		{
-    	color2.style.color = "red";
-  		}
-  		color1.style.color = "grey";
-		}
-
- 	</script>
 
 
 	<!-- POPUP WRITE POST JS -->
