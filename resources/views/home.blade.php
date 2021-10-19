@@ -185,19 +185,20 @@
         		</button> -->
       	</div>
       		<div class="modal-body">
-        		<form>
-          
+        		<form action="{{url('dopost')}}" method="post">
+                @csrf
           			<div class="form-group">
             		<!-- <label for="message-text" class="col-form-label">Write Post</label> -->
-            		<textarea class="form-control post-text" id="message-text" rows="2" cols="2" placeholder="What's on your mind?"></textarea>
+            		<input type="text" name="content" class="form-control post-text" id="message-text" rows="2" cols="2" placeholder="What's on your mind?"></input>
           			</div>
-        		</form>
+        		
       		</div>
       			<div class="modal-footer">
        			 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        		 <button type="button" class="btn btn-primary">Post</button>
+        		 <button type="submit" class="btn btn-primary">Post</button>
       			</div>
     		</div>
+      </form>
   </div>
 </div>
 
@@ -226,15 +227,20 @@
         <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>  <!-- diffForHuman() is a function of CARBON library whichs returns a time that a human can easily understand -->
         <p class="card-text">{{$post->content}}</p>
         <div class="card-footer bg-white post-options">
-
-          <bbutton class="like-btn">
-      		<i class="fas fa-thumbs-up pt-1" id="like{{$post->id}}"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_like}} Like</span></i>
-    	  </bbutton>
-    	   
-          <bbutton class="dislike-btn">
-          <i class="fas fa-thumbs-down pt-1" id="dislike{{$post->id}}"><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_dislike}} Dislike</span></i>
-          </bbutton>
-
+      <form action="{{url('like')}}" method="post">
+        @csrf
+          <button tupe="submit" class="like-btn">
+            <input type="number" name="post_id" value="{{$post->id}}" hidden>
+      		<i class="fas fa-thumbs-up pt-1" ><span style=" padding-left: 2px; padding-right: 10px">{{$post->number_of_like}} Like</span></i>
+    	  </button>
+    	   </form>
+         <form action="{{url('dislike')}}" method="post">
+        @csrf
+          <button tupe="submit" class="dislike-btn">
+            <input type="number" name="post_id" value="{{$post->id}}" hidden>
+          <i class="fas fa-thumbs-down pt-1" ><span style="padding-left: 2px; padding-right: 10px">{{$post->number_of_dislike}} Dislike</span></i>
+          </button>
+          </form>
 
           <div class="share-btn">
           <i class="fas fa-share"></i><span> Share</span>

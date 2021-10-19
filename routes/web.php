@@ -36,3 +36,8 @@ Route::view('Home','home'); // route to view home
 Route::view('WelcomeToDo','WelcomeToDo');  // route to view Welcome page
 
 Route::get('viewposts',[PostController::class,'ViewPost']); //route to show posts in the home page
+
+Route::post('dopost',[PostController::class,'DoPost']);  //route to do posts
+
+Route::post('like',[PostController::class,'like']);
+Route::post('dislike',[PostController::class,'dislike']);
