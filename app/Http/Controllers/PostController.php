@@ -43,7 +43,7 @@ class PostController extends Controller
                 $like_list = like_dislike_list::where('post_id','=',$req->post_id)->decrement('liked');
                 return redirect('viewposts');
             }
-            elseif ($user->liked == 0 && $user->disliked == 1) {
+            elseif ($user->liked == 0 && $user->disliked == 1) {  //if a user previously disliked the post and again hit the dislike button.
                 $post = post::where('id','=', $req->post_id)->increment('number_of_like');
                 $post = post::where('id','=', $req->post_id)->decrement('number_of_dislike');
 
