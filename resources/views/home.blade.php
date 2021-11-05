@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Demo</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script
@@ -13,6 +14,8 @@
      
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
       
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
@@ -227,13 +230,13 @@
         <p class="card-text"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>  <!-- diffForHuman() is a function of CARBON library whichs returns a time that a human can easily understand -->
         <p class="card-text">{{$post->content}}</p>
         <div class="card-footer bg-white post-options">
-      <form action="{{url('like')}}" method="post">
-        @csrf
-          <button tupe="submit" class="like-btn">
+      <!-- <form action="{{url('like')}}" method="post">
+        @csrf -->
+          <button  class="like-btn" id="like_button{{$post->id}}">
             <input type="number" name="post_id" value="{{$post->id}}" hidden>
-      		<i class="fas fa-thumbs-up pt-1" ><span style=" padding-left: 2px; padding-right: 10px">{{$post->number_of_like}} Like</span></i>
+      		<i class="fas fa-thumbs-up pt-1" ><span style=" padding-left: 2px; padding-right: 10px"><div id="like_count{{$post->id}}">{{$post->number_of_like}}</div> Like</span></i>
     	  </button>
-    	   </form>
+    	   <!-- </form> -->
          <form action="{{url('dislike')}}" method="post">
         @csrf
           <button tupe="submit" class="dislike-btn">
@@ -252,6 +255,7 @@
       </div>
     </div>
   </div>
+  
 <script>
     
     
@@ -280,10 +284,26 @@
       color1.style.color = "grey";
     }
   </script>
-
+<script>
+    $(document).ready(function(){
+      
+      $("#like_button{{$post->id}}").click(function(){
+        const pi = {{$post->id}};
+        console.log(pi);
+        $("#like_count{{$post->id}}").load("{{url('like')}}",{
+          post_id: {{$post->id}}
+        });
+        $.ajaxSetup({
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      });
+    });
+  </script>
 
   @endforeach
-
+  
    <!-- <div class=" container justify-content-center pt-3" style="align-items: center;">
     <div class="card">
       <div class="card-body">

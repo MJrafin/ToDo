@@ -40,4 +40,4 @@ Route::get('viewposts',[PostController::class,'ViewPost']); //route to show post
 Route::post('dopost',[PostController::class,'DoPost']);  //route to do posts
 
 Route::post('like',[PostController::class,'like']);
-Route::post('dislike',[PostController::class,'dislike']);
+Route::post('dislike',[PostController::class,'dislike']);   
