@@ -15,9 +15,9 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::view('Reg_form','Reg_form');  // Route to view the Registration form
 Route::post('registration',[UserController::class,'registration']);  //gets data from the registration form and saves the data in the table
 
@@ -29,15 +29,17 @@ Route::get('Logout', function(){
 
         session()->pull('user');  //pulls the value from the session
     }
-    return redirect('WelcomeToDo');  // redirects to home
+    return redirect('/');  // redirects to home
 });
 
 Route::view('Home','home'); // route to view home
-Route::view('WelcomeToDo','WelcomeToDo');  // route to view Welcome page
+Route::view('/','WelcomeToDo');  // route to view Welcome page
 
 Route::get('viewposts',[PostController::class,'ViewPost']); //route to show posts in the home page
+Route::get('fetchposts',[PostController::class,'FetchPost']);
 
 Route::post('dopost',[PostController::class,'DoPost']);  //route to do posts
 
-Route::post('like',[PostController::class,'like']);
-Route::post('dislike',[PostController::class,'dislike']);   
+Route::get('like/{post_id}',[PostController::class,'like']);
+
+Route::get('dislike/{post_id}',[PostController::class,'dislike']);   
